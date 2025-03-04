@@ -4,7 +4,6 @@ const InfoCardBig = ({
   rocketName,
   date,
   status,
-  imgPath,
   description,
   youtube,
   article,
@@ -12,7 +11,16 @@ const InfoCardBig = ({
   payloads,
   launchpad,
 }: {
-  imgPath: string;
+  name: string;
+  rocketName: string;
+  date: string;
+  status: string;
+  description: string;
+  youtube: string;
+  article: string;
+  wiki: string;
+  payloads: string;
+  launchpad: string;
 }) => {
   const dateObj = new Date(date);
   const dateString = dateObj.toLocaleDateString();
@@ -21,7 +29,9 @@ const InfoCardBig = ({
   return (
     <View className="bg-[#8E1616] px-3 py-10 rounded-2xl border-2 border-black shadow-md shadow-white">
       <View className="items-center gap-4">
-        <Text className="text-white font-bold text-3--xl text-center">Mission: {name}</Text>
+        <Text className="text-white font-bold text-3--xl text-center">
+          Mission: {name}
+        </Text>
         <Text className="text-gray-300 font-bold text-xl">
           Rocket Name: {rocketName}
         </Text>

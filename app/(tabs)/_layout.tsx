@@ -16,16 +16,27 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
+          title:"Missions",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <FontAwesome size={24} name="list-ul" color={color} />
           ),
         }}
       />
       <Tabs.Screen
         name="rockets"
         options={{
+          title:"Rockets"
+          ,tabBarIcon: ({ color }) => (
+            <FontAwesome size={26} name="rocket" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="favourite"
+        options={{
+          title:"Favourites",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <FontAwesome size={26} name="star" color={color} />
           ),
         }}
       />

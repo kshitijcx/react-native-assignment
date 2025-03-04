@@ -1,5 +1,9 @@
 import { Link, usePathname } from "expo-router";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Button, Image, Pressable, StyleSheet, Text, View } from "react-native";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { useContext } from "react";
+import { FavContext } from "@/context/FavContext";
+
 const InfoCard = ({
   name,
   rocketName,
@@ -17,6 +21,19 @@ const InfoCard = ({
   const dateString = dateObj.toLocaleDateString();
   const timeString = dateObj.toLocaleTimeString();
 
+  const path = usePathname();
+
+  const { items, addItem, removeItem } = useContext(FavContext);
+
+  const handleAddItem = () => {
+    const newItem = { id, name, rocketName, date, success };
+    addItem(newItem);
+  };
+
+  const handleRemoveItem = (id: string) => {
+    removeItem(id);
+  };
+
   return (
     <View className="bg-[#8E1616] px-3 py-4 rounded-2xl gap-2 border-2 border-black shadow-md shadow-white flex flex-row items-center justify-around">
       <View className="w-60 gap-2">
@@ -27,17 +44,27 @@ const InfoCard = ({
         <Text className="text-gray-300 font-bold">
           {dateString} {timeString}
         </Text>
-        <Link
-          href={{
-            pathname: "./[mission]",
-            params: { missionId: id },
-          }}
-          asChild
-        >
-          <Pressable className="bg-[#D84040] w-20 py-2 rounded-2xl border-2 mt-2">
-            <Text className="text-center text-white font-semibold">More</Text>
-          </Pressable>
-        </Link>
+        <View className="flex flex-row gap-2 items-center">
+          <Link
+            href={{
+              pathname: "../[mission]",
+              params: { missionId: id },
+            }}
+            asChild
+          >
+            <Button color="#D84040" title="More..." />
+          </Link>
+          {path === "/" && (
+            <Button color="#D84040" title="Favourite" onPress={handleAddItem} />
+          )}
+          {path === "/favourite" && (
+            <Button
+              color="#D84040"
+              title="Remove"
+              onPress={() => handleRemoveItem(id)}
+            />
+          )}
+        </View>
       </View>
       <View>
         <Text className="text-2xl font-bold text-white">{success}</Text>

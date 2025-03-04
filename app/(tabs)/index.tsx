@@ -9,7 +9,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useQuery } from "@tanstack/react-query";
 import InfoCard from "@/components/InfoCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FavContext } from "@/context/FavContext";
 
 const fetchData = async (past: boolean) => {
   const url = past
@@ -91,6 +92,7 @@ const index = () => {
       </View>
     );
   };
+
 
   return (
     <SafeAreaView className="flex-1">

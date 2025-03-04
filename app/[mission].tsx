@@ -56,12 +56,12 @@ const MissionPage = () => {
   });
 
   const findPayloads = (payloadArr: string[]) => {
-    const foundPayloads = payloads.filter((obj) =>
+    const foundPayloads = payloads.filter((obj:any) =>
       payloadArr.some((searchValue) =>
         obj.id.toLowerCase().includes(String(searchValue).toLowerCase())
       )
     );
-    const concatenatedPayload = foundPayloads.map((obj) => obj.name).join(", ");
+    const concatenatedPayload = foundPayloads.map((obj:any) => obj.name).join(", ");
     return concatenatedPayload;
   };
 
@@ -87,7 +87,6 @@ const MissionPage = () => {
                   : "Fail"
                 : "TBD"
             }
-            imgPath={data.links.patch.large}
             description={data.details}
             youtube={data.links.webcast}
             article={data.links.article}
