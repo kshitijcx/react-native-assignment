@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn",
-    "slug": "rn",
+    "name": "SpaceX",
+    "slug": "SpaceX",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -15,7 +15,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.kshitijcx.SpaceX"
     },
     "web": {
       "bundler": "metro",
@@ -36,6 +37,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "d0b33dc6-0b81-48f7-82ec-ed2492c9e678"
+      }
     }
   }
 }
