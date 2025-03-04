@@ -10,8 +10,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useQuery } from "@tanstack/react-query";
 import InfoCard from "@/components/InfoCard";
 import { useEffect, useState } from "react";
-import Feather from "@expo/vector-icons/Feather";
-import { Link } from "expo-router";
 
 const fetchData = async (past: boolean) => {
   const url = past
@@ -59,7 +57,7 @@ const index = () => {
     if (text === "") {
       setFilteredData(data);
     } else {
-      const filtered = data.filter((item:any) =>
+      const filtered = data.filter((item: any) =>
         item.name.toLowerCase().includes(text.toLowerCase())
       );
       setFilteredData(filtered);
@@ -82,8 +80,8 @@ const index = () => {
         <View className="flex flex-row justify-end items-center">
           <Text className="text-white text-sm">Upcoming</Text>
           <Switch
-            trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+            trackColor={{ false: "white", true: "gray" }}
+            thumbColor={isEnabled ? "white" : "gray"}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleSwitch}
             value={isEnabled}
@@ -129,6 +127,7 @@ const index = () => {
                       : "Fail"
                     : "TBD"
                 }
+                id={item.id}
               />
             )}
             keyExtractor={(item) => item.id}
